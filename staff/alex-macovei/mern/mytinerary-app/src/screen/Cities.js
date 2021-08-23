@@ -27,10 +27,6 @@ class Cities extends Component {
         }
     }
 
-
-    // TODO RTFM Promises
-    // TODO RTFM async await
-
     componentWillMount() {
         this.props.retrieveCities()
     }
@@ -90,7 +86,7 @@ class Cities extends Component {
                     <div>
                         {filteredCities.map(city => (
                             <div>
-                                <button onClick={this.handleClick(city.name)}>
+                                <button onClick={() => this.handleClick(city.name)}>
                                     {city.name}
                                 </button>
                             </div>

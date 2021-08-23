@@ -2,26 +2,15 @@ const express = require('express')
 
 const router = express.Router()
 
-const cityModel = require('../model/cityModel')
-const itineraryModel = require('../model/itineraryModel')
+const retrieveAllCities = require('../logic/retrieve-all-cities')
 
 router.get('/all',
     (req, res) => {
-        cityModel.find({})
+        retrieveAllCities()
             .then(files => {
                 res.send(files)
             })
-            .catch(err => console.log(err));
-    });
-
-router.get('/:name',
-    (req, res) => {
-        let cityName = req.params.name;
-        itineraryModel.findOne({ city: cityName })
-            .then(itinerary => {
-                res.send(itinerary)
-            })
-            .catch(err => console.log(err));
+            .catch(err => res.status(500).send(err.message));
     });
 
 module.exports = router

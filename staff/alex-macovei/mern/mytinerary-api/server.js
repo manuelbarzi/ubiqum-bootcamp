@@ -1,4 +1,5 @@
 const db = require('./keys').mongoURI;
+const passport = require('./passport')
 
 const express = require("express");
 const app = express();
@@ -20,7 +21,13 @@ app.listen(port, () => {
 });
 
 app.use('/cities', require('./routes/cities'))
-
+app.use('/accounts', require('./routes/accounts'))
+app.use('/itineraries', require('./routes/itineraries'))
+app.use('/google', require('./routes/google-login'))
+//passport middleware
+app.use(passport.initialize());
+//passport configuration
+require('./passport');
 
 const mongoose = require("mongoose");
 
