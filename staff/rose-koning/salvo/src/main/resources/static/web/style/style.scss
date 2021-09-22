@@ -1,0 +1,135 @@
+body {
+  background-color: rgb(201, 212, 236);
+  text-align: center;
+}
+
+.header{
+  background-color: rgb(10, 139, 190);
+}
+
+.main{
+  background-image: url("../images/battleshipbackground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 30rem;
+}
+.info-box{
+  background-image: url("../images/wood.jpg");
+  display: inline-block;
+  padding: 2rem;
+  border-radius: 100px / 70px;
+  color:rgb(5, 46, 80);
+  text-shadow: 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255), 0 1px 0 rgb(255, 255, 255), -1px 0 0 rgb(255, 255, 255);
+}
+
+.salvo-button{
+  border-radius: 50%;
+  background-color: black;
+  color: aliceblue;
+}
+
+.back-button{
+  float: left;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  &__ship-buttons{
+    display: inline-flex;
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem;
+  grid-template-rows: 1.5rem 1.5rem 1.5rem 1.5rem 1.5rem 1.5rem 1.5rem 1.5rem 1.5rem 1.5rem 1.5rem;
+  grid-gap: 0.2rem;
+  border: black;
+  border-style: double;
+  width: 35rem;
+  background-image: url("../images/OwZ.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__cell--ship {
+    background-color: rgb(13, 175, 162);
+  }
+
+  &__cell--salvo {
+    background-color: rgb(201, 96, 11);
+  }
+  &__cell:hover {
+    background-color: rgb(19, 75, 70);
+    opacity: 0.5;
+  }
+  &__cell--active {
+    background-color: rgb(19, 75, 70);
+    opacity: 0.5;
+  }
+  &__cell--shot{
+   background-image: url("../images/hit.png");
+   background-size: cover;
+  }
+  &__cell--missed-shot{
+    background-image: url("../images/splash.png");
+    background-size: cover;
+  }
+}
+
+
+.main-box {
+  border: rgb(78, 102, 150);
+  background-color: rgb(168, 183, 214);
+  border-style: solid;
+}
+
+.button {
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 1px 1px;
+  cursor: pointer;
+  border-radius: 16px;
+
+  &__boat {
+    max-width: 8rem;
+    max-height: 4rem;
+
+    &--active {
+      border: orange;
+      border-style: double;
+      max-width: 8rem;
+    max-height: 4rem;
+    }
+    &--placed{
+      border:green;
+      border-style: double;
+      margin: 2px;
+      max-height: 2.6rem;
+    }
+  }
+}
+
+.boat {
+  max-width: 4rem;
+  max-height: 3rem;
+  &--patrol {
+    max-height: 1rem;
+  }
+}
+
+.error {
+  color: rgb(168, 5, 5);
+}
+
+@media only screen and (min-width: 1000px) {
+  .flex-container {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
