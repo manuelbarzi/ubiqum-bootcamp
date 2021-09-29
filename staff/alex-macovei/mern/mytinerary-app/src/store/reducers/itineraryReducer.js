@@ -1,16 +1,18 @@
-const initialState = {
-    itinerary: []
-  };
-
-  export default function itineraryReducer(state = initialState, action) {
-    switch (action.type) {
-      case "RETRIEVE_ITINERARY": {
-        return {
-          ...state,
-          city: action.payload,
-        };
-      }
-      default:
-        return state;
+export default function itineraryReducer(state = {}, action) {
+  switch (action.type) {
+    case "RETRIEVE_ITINERARIES": {
+      return {
+        ...state,
+        itinerary: action.payload,
+      };
     }
+    case "RETRIEVE_ITINERARIES_ERROR": {
+      return {
+        ...state,
+        error: action.payload,
+      };
+    }
+    default:
+      return state;
   }
+}

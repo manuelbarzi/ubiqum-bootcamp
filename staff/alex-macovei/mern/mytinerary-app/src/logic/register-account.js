@@ -6,7 +6,7 @@ export default async function (email, password, picture) {
     if (typeof picture !== 'string') throw new TypeError(`${picture} is not a string`)
 
     return (async () => {
-        const response = await axios.post("http://localhost:5000/accounts/register", { email, password, picture });
+        const response = await axios.post("http://localhost:5000/accounts", { email, password, picture });
 
         if (response.status === 201) {
             return

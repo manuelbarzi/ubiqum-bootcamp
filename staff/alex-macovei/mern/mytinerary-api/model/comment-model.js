@@ -1,22 +1,21 @@
 const mongoose = require('mongoose')
-
 const { ObjectId } = mongoose
 
-const citySchema = new mongoose.Schema({
+const commentSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        unique: true,
     },
 
-    country: {
+    comment: {
         type: String,
         required: true,
     },
-    comments: [{
+
+    cityId: {
         type: ObjectId,
-        ref: 'Comment'
-    }]
+        ref: 'City'
+    }
 })
 
-module.exports = mongoose.model('City', citySchema)
+module.exports = mongoose.model('Comment', commentSchema)

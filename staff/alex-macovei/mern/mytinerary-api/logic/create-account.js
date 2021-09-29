@@ -6,7 +6,7 @@ const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))
 const URL_REGEX = /\b(https?:\/\/.*?\.[a-z]{2,4}\/[^\s]*\b)/
 
 module.exports = function (email, password, picture) {
-    if (typeof email !== 'string') throw new TypeError(`${email} ìs not a string`) // TODO RTFM try-catch vs throw errors
+    if (typeof email !== 'string') throw new TypeError(`${email} ìs not a string`)
     if (!EMAIL_REGEX.test(email)) throw new Error(`${email} is not a valid e-mail`)
 
     if (typeof password !== 'string') throw new TypeError(`${password} ìs not a string`)
@@ -30,5 +30,5 @@ module.exports = function (email, password, picture) {
         })
 
         await newAccount.save()
-    })() // TODO RTFM IIFE
+    })() 
 }

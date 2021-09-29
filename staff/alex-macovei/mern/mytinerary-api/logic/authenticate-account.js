@@ -12,7 +12,7 @@ module.exports = function (email, password) {
     if (password.length < 8) throw new Error('The password You entered is too short')
 
 
-    return (async () => { // TODO RTFM promises (vs async-await)
+    return (async () => {
         const account = await accountModel.findOne({ email })
 
         if (account) {

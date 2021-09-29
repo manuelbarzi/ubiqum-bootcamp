@@ -5,12 +5,12 @@ export default async function (email, password) {
     if (typeof password !== 'string') throw new TypeError(`${password} is not a string`)
 
     return (async () => {
-        const response = await axios.get("http://localhost:5000/accounts/login", { email, password });
+        const response = await axios.post("http://localhost:5000/accounts/auth", { email, password });
 
-        if (response.status === 201) {
-            return
+        if (response.status === 200) {
+            return response.data.token
         }
 
-        throw new Error('could not register account')
+        throw new Error('could not login account')
     })()
 }

@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 
+const { ObjectId } = mongoose
+
 const itinerarySchema = new mongoose.Schema({
     name: {
         type: String,
@@ -32,10 +34,10 @@ const itinerarySchema = new mongoose.Schema({
     },
 
     city: {
-        type: String,
+        type: ObjectId,
         required: true,
-        unique: true,
+        ref: 'City'
     }
 })
 
-module.exports = mongoose.model('itinerary', itinerarySchema)
+module.exports = mongoose.model('Itinerary', itinerarySchema)

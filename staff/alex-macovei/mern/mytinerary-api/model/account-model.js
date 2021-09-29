@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 
+const { ObjectId } = mongoose
+
 const accountSchema = new mongoose.Schema({
     email: {
         type: String,
@@ -14,7 +16,15 @@ const accountSchema = new mongoose.Schema({
     },
     picture: {
         type: String,
-    }
+     },
+     favCities: [{ 
+         type: ObjectId,
+         ref: 'City'
+     }],
+    favItineraries: [{ 
+        type: ObjectId,
+        ref: 'Itinerary'
+    }]
 })
 
-module.exports = mongoose.model('account', accountSchema)
+module.exports = mongoose.model('Account', accountSchema)
