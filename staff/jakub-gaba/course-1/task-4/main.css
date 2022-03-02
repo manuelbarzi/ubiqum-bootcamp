@@ -1,8 +1,7 @@
 .bigboss{
-  width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
- 
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
 }
 .container {
   padding: 1rem;
